@@ -1,0 +1,12 @@
+# name: ${FILE_PATH}
+# description: ${DESCRIPTION}
+# group: [ssb]
+
+name Q${QUERY_NUMBER}
+group SSB
+
+cache ssb_sf_${SF}.duckdb
+
+load benchmark/ssb/sf_${SF}/load.sql
+
+run benchmark/ssb/queries/q${QUERY_NUMBER}.sql

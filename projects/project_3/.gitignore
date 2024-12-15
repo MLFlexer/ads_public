@@ -1,0 +1,4 @@
+*.parquet*
+*/target/*
+target/*
+*/wayang-0.7.1/

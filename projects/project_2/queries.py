@@ -1,0 +1,60 @@
+q1_1 = """SELECT
+    sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS REVENUE
+FROM
+    lineorder,
+    date
+WHERE
+    LO_ORDERDATE = D_DATEKEY
+    AND D_YEAR = 1993
+    AND LO_DISCOUNT BETWEEN 1 AND 3
+    AND LO_QUANTITY < 25"""
+
+q3_1 = """SELECT
+    C_NATION,
+    S_NATION,
+    D_YEAR,
+    sum(LO_REVENUE) AS REVENUE
+FROM
+    customer,
+    lineorder,
+    supplier,
+    date
+WHERE
+    LO_CUSTKEY = C_CUSTKEY
+    AND LO_SUPPKEY = S_SUPPKEY
+    AND LO_ORDERDATE = D_DATEKEY
+    AND C_REGION = 'ASIA' AND S_REGION = 'ASIA'
+    AND D_YEAR >= 1992 AND D_YEAR <= 1997
+GROUP BY
+    C_NATION,
+    S_NATION,
+    D_YEAR
+ORDER BY
+    D_YEAR ASC,
+    REVENUE DESC"""
+
+q4_1 = """SELECT
+    D_YEAR,
+    C_NATION,
+    sum(LO_REVENUE - LO_SUPPLYCOST) AS PROFIT
+FROM
+    date,
+    customer,
+    supplier,
+    part,
+    lineorder
+WHERE
+    LO_CUSTKEY = C_CUSTKEY
+    AND LO_SUPPKEY = S_SUPPKEY
+    AND LO_PARTKEY = P_PARTKEY
+    AND LO_ORDERDATE = D_DATEKEY
+    AND C_REGION = 'AMERICA'
+    AND S_REGION = 'AMERICA'
+    AND (P_MFGR = 'MFGR#1' OR P_MFGR = 'MFGR#2')
+GROUP BY
+    D_YEAR,
+    C_NATION
+ORDER BY
+    D_YEAR,
+    C_NATION
+"""

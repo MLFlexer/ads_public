@@ -1,0 +1,9 @@
+[submodule "assignments/as3/wayang"]
+	path = assignments/as3/wayang
+	url = git@github.com:MLFlexer/incubator-wayang.git
+[submodule "projects/project_3/wayang"]
+	path = projects/project_3/wayang
+	url = git@github.com:MLFlexer/incubator-wayang.git
+[submodule "projects/project_2/duckdb"]
+	path = projects/project_2/duckdb
+	url = git@github.com:MLFlexer/duckdb.git
